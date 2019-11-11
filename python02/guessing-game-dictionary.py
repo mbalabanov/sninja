@@ -45,7 +45,7 @@ while True:
 		print("You took " + str(attempts) + " attempts.")
 		print("\n")
 		print("The best past scores are:")
-		# sort the list of dicts per attempts
+		# sort the list of dicts per attempts - Copied from solution on Smartninja Git Repo
 		hsDisplaySort = sorted(hsDisplay, key=lambda k: k['attempts'])[:3]
 		for i in hsDisplaySort:
 			sortedScoreText = "Player {0} had {1} attempts on {2}. The wrong guesses were: {3}".format(i.get("name"),str(i.get("attempts")),i.get("playDate"),i.get("failedattempts"))
