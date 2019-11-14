@@ -2,7 +2,7 @@
 
 import random
 
-# Dictionart of countries and their capitals
+# Dictionary of countries and their capitals
 countries_cities = {"Austria": "Vienna", "Croatia": "Zagreb", "Spain": "Madrid", "Slovenia": "Ljubljana", "United Kingdom": "London", "Germany": "Berlin"}
 
 # The gameplay function
@@ -16,7 +16,7 @@ def guessCapital():
 		countriesList.append(i)
 
 	# Generate random number, pick a random country and find the capital
-	countryIndex = random.randint(1, limitRandom)
+	countryIndex = random.randint(0, limitRandom)
 	guessCountry = countriesList[countryIndex]
 	guessCity = countries_cities[guessCountry]
 
@@ -31,7 +31,6 @@ def guessCapital():
 		elif guess.upper() != guessCity.upper():
 			print("Sorry, your guess is wrong. Try again. Here's a hint, it starts with " + guessCity[0].upper() + ".")
 				
-
 # Intro for player
 print("\n\nWelcome to Guess the Capital City!")
 
@@ -42,3 +41,4 @@ while True:
 		guessCapital()
 	else:
 		break
+
