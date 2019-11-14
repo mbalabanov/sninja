@@ -2,21 +2,43 @@
 
 import random
 
+# Dictionart of countries and their capitals
 countries_cities = {"Austria": "Vienna", "Croatia": "Zagreb", "Spain": "Madrid", "Slovenia": "Ljubljana", "United Kingdom": "London", "Germany": "Berlin"}
 
-countriesList = []
-citiesList = []
+# The gameplay function
+def guessCapital():
 
-for i in countries_cities:
-	countriesList.append(i)
+	# Initialize lists and variables
+	countriesList = []
+	limitRandom = len(countries_cities)
 
-countryIndex = random.randint(1, len(countriesList))
-guessCountry = countriesList[countryIndex]
-guessCity = countries_cities[guessCountry]
+	for i in countries_cities:
+		countriesList.append(i)
 
-guess = input("\nWhat is the capital of " + guessCountry + "? ")
+	# Generate random number, pick a random country and find the capital
+	countryIndex = random.randint(1, limitRandom)
+	guessCountry = countriesList[countryIndex]
+	guessCity = countries_cities[guessCountry]
 
-if guess.upper() == guessCity.upper():
-	print("Awesome! Your guess is right.")
-else:
-	print("Sorry, your guess is wrong. The right answer is " + guessCity + ".\n")
+	# Play game
+	while True:
+		# User input starts here
+		guess = input("\nWhat is the capital of " + guessCountry + "? ")
+		
+		if guess.upper() == guessCity.upper():
+			print("Awesome " + name + "! Your guess is right.")
+			break
+		elif guess.upper() != guessCity.upper():
+			print("Sorry, your guess is wrong. Try again. Here's a hint, it starts with " + guessCity[0].upper() + ".")
+				
+
+# Intro for player
+print("\n\nWelcome to Guess the Capital City!")
+
+while True:
+	choose = input("\nWould you like to A) play a new game of guess the capital city, or B) quit?")
+	if choose.upper() == "A":
+		name = input("Please enter your name: ")
+		guessCapital()
+	else:
+		break
